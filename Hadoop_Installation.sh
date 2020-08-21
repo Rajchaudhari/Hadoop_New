@@ -1,4 +1,4 @@
-RED='\033[0;31m'
+RED='\033[0;32m'
 NC='\033[0m' 
 if dpkg -S /bin/ls >/dev/null 2>&1
 then
@@ -18,3 +18,6 @@ then
   cat ~/output/*
   printf "${RED}HADOOP INSTALLATION COMPLETED !${NC} \n Verify by: hadoop version \n"
   hadoop version
+elif rpm -q -f /bin/ls >/dev/null 2>&1
+then
+ 
