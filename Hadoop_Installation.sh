@@ -9,7 +9,7 @@ then
   sudo tar -zxvf hadoop-2.7.7.tar.gz -C /opt ;
   sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-2.7.7/etc/hadoop/hadoop-env.sh ;
   echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" >> /opt/hadoop-2.7.7/etc/hadoop/hadoop-env.sh ;
-  echo "export PATH=/opt/hadoop-2.7.7/bin:$PATH" | sudo tee -a /etc/profile ;
+  echo "export PATH=/opt/hadoop-2.7.7/bin:$PATH" | sudo tee -a /etc/profile ;  sudo source /etc/profile ;
   source /etc/profile ;
   mkdir ~/source ;
   sudo cp /opt/hadoop-2.7.7/etc/hadoop/*.xml ~/source ;
