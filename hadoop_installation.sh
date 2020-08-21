@@ -5,7 +5,7 @@ cd
 yum install wget -y
 wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz
 wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.7.7/hadoop-2.7.7-src.tar.gz
-sudo yum install perl-Digest-SHA
+sudo yum install perl-Digest-SHA -y
 sudo tar -zxvf hadoop-2.7.7.tar.gz -C /opt
 sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-2.7.7/etc/hadoop/hadoop-env.sh
 echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" >> /opt/hadoop-2.7.7/etc/hadoop/hadoop-env.sh
