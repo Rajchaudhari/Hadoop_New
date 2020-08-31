@@ -16,7 +16,8 @@ then
   hadoop jar /opt/hadoop-2.7.7/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.7.jar grep ~/source ~/output 'principal[.]*' ;
   cat ~/output/* ;
   printf "${RED}HADOOP INSTALLATION COMPLETED !${NC} \n Verify by: hadoop version \n" ;
-  hadoop version
+  hadoop version ;
+  source /etc/profile 
 elif rpm -q -f /bin/ls >/dev/null 2>&1
 then
   sudo yum install epel-release -y ;
