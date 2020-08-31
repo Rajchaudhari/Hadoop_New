@@ -19,7 +19,7 @@ then
   hadoop version ;
   source /etc/profile ;
   printf "${RED}PLEASE RUN THE FINAL COMMAND GIVEN BELOW . . . and then !${NC} \n Verify by: hadoop version \n" ;
-  printf "--------------------\n ${RED}source /etc/profile \n --------------------"  
+  printf "-------------------- \n ${RED}source /etc/profile \n -------------------- \n"  
 elif rpm -q -f /bin/ls >/dev/null 2>&1
 then
   sudo yum install epel-release -y ;
