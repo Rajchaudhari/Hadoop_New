@@ -116,12 +116,17 @@ hdfs namenode -format
 RED='\033[0;32m'                                                                                                                                                                                                   NC='\033[0m'
 if dpkg -S /bin/ls >/dev/null 2>&1
 then
+ /opt/hadoop-2.7.7/sbin/start-dfs.sh
+ /opt/hadoop-2.7.7/sbin/start-yarn.sh
  sudo apt-get -y install openjdk-8-jdk-headless default-jre 
 elif rpm -q -f /bin/ls >/dev/null 2>&1
 then
+ /opt/hadoop-2.7.7/sbin/start-dfs.sh
+ /opt/hadoop-2.7.7/sbin/start-yarn.sh
  sudo yum install java-1.8.0-openjdk-devel -y
 else
   echo "Don't know this package system (neither RPM nor DEB)."
   exit 1
 fi
 printf " ############# \n Hit ${RED} jps command to verify !\n ${NC}############ \n" 
+
