@@ -19,7 +19,7 @@ then
   hadoop version ;
   source /etc/profile ;
   printf "${RED}PLEASE RUN THE FINAL COMMAND GIVEN BELOW . . . and then !${NC} Verify by: hadoop version \n" ;
-  printf " ########### \n ${RED}source /etc/profile \n ${NC}########## \n" 
+  printf " ############# \n ${RED}source /etc/profile \n ${NC}############ \n" 
 elif rpm -q -f /bin/ls >/dev/null 2>&1
 then
   sudo yum install epel-release -y ;
@@ -39,8 +39,10 @@ then
   cp /opt/hadoop-2.7.7/etc/hadoop/*.xml ~/source ;
   hadoop jar /opt/hadoop-2.7.7/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.7.jar grep ~/source ~/output 'principal[.]*' ;
   cat ~/output/* ;
-  printf "${RED}HADOOP INSTALLATION COMPLETED !${NC} \n Verify by: hadoop version \n" ;
+  printf "${RED}HADOOP INSTALLATION COMPLETED !\n" ;
   hadoop version
+  printf "${RED}PLEASE RUN THE FINAL COMMAND GIVEN BELOW . . . and then !${NC} Verify by: hadoop version \n" ;
+  printf " ########### \n ${RED}source /etc/profile \n ${NC}########## \n"
  else
   echo "Don't know this package system (neither RPM nor DEB)."
   exit 1
