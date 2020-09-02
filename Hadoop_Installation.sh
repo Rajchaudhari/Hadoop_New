@@ -1,4 +1,7 @@
-RED='\033[0;32m'                                                                                                                                                                                                   NC='\033[0m'
+RED='\033[0;32m'  
+NC='\033[0m'
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes'
+sudo systemctl restart sshd
 if dpkg -S /bin/ls >/dev/null 2>&1
 then
   sudo apt-get update -y ;
