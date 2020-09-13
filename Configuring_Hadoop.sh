@@ -125,12 +125,19 @@ then
  alias stop-all.sh="/opt/hadoop-2.7.7/sbin/stop-all.sh"
  alias start-dfs.sh="/opt/hadoop-2.7.7/sbin/start-dfs.sh"
  alias start-yarn.sh="/opt/hadoop-2.7.7/sbin/start-yarn.sh"
- EOF
+EOF
+ sudo setfacl -R -m u:ubuntu:rwx /opt/* 
+ cat << EOF > /home/ubuntu/.bashrc
+ alias start-all.sh="/opt/hadoop-2.7.7/sbin/start-all.sh"
+ alias stop-all.sh="/opt/hadoop-2.7.7/sbin/stop-all.sh"
+ alias start-dfs.sh="/opt/hadoop-2.7.7/sbin/start-dfs.sh"
+ alias start-yarn.sh="/opt/hadoop-2.7.7/sbin/start-yarn.sh"
+EOF
  /opt/hadoop-2.7.7/sbin/stop-all.sh
  sudo rm -rf /opt/hadoop/dfsdata/datanode/*
  /opt/hadoop-2.7.7/sbin/start-dfs.sh
  /opt/hadoop-2.7.7/sbin/start-all.sh
- echo "ENTER THE FINAL WHICH IS:      source $HOME/.bashrc
+ echo "ENTER THE FINAL WHICH IS:      source $HOME/.bashrc"
 elif rpm -q -f /bin/ls >/dev/null 2>&1
 then
  /opt/hadoop-2.7.7/sbin/start-dfs.sh
