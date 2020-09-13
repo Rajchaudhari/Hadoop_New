@@ -119,13 +119,19 @@ then
  /opt/hadoop-2.7.7/sbin/start-dfs.sh
  /opt/hadoop-2.7.7/sbin/start-yarn.sh
  /opt/hadoop-2.7.7/sbin/start-all.sh 
- sudo apt-get -y install openjdk-8-jdk-headless default-jre 
+ sudo apt-get -y install openjdk-8-jdk-headless default-jre  
+ sudo stop-all.sh
+ sudo rm -rf /opt/hadoop/dfsdata/datanode/*
+ sudo start-all.sh
 elif rpm -q -f /bin/ls >/dev/null 2>&1
 then
  /opt/hadoop-2.7.7/sbin/start-dfs.sh
  /opt/hadoop-2.7.7/sbin/start-yarn.sh
  /opt/hadoop-2.7.7/sbin/start-all.sh 
  sudo yum install java-1.8.0-openjdk-devel -y
+ sudo stop-all.sh
+ sudo rm -rf /opt/hadoop/dfsdata/datanode/*
+ sudo start-all.sh
 else
   echo "Don't know this package system (neither RPM nor DEB)."
   exit 1
