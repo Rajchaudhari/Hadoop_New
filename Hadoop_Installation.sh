@@ -7,6 +7,8 @@ then
   sudo apt-get update -y ;
   sudo apt-get install default-jdk -y ;
   cd ;
+  sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+  sudo systemctl restart sshd
   wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz ;
   wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.7.7/hadoop-2.7.7-src.tar.gz ;
   sudo tar -zxvf hadoop-2.7.7.tar.gz -C /opt ;
