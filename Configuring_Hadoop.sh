@@ -121,17 +121,17 @@ then
  /opt/hadoop-2.7.7/sbin/start-all.sh 
  sudo apt-get -y install openjdk-8-jdk-headless default-jre
  cat << EOF >> $HOME/.bashrc
- alias start-all.sh="/opt/hadoop-2.7.7/sbin/start-all.sh"
- alias stop-all.sh="/opt/hadoop-2.7.7/sbin/stop-all.sh"
- alias start-dfs.sh="/opt/hadoop-2.7.7/sbin/start-dfs.sh"
- alias start-yarn.sh="/opt/hadoop-2.7.7/sbin/start-yarn.sh"
+ alias start-all.sh="sudo /opt/hadoop-2.7.7/sbin/start-all.sh"
+ alias stop-all.sh="sudo /opt/hadoop-2.7.7/sbin/stop-all.sh"
+ alias start-dfs.sh="sudo /opt/hadoop-2.7.7/sbin/start-dfs.sh"
+ alias start-yarn.sh="sudo /opt/hadoop-2.7.7/sbin/start-yarn.sh"
 EOF
  sudo setfacl -R -m u:ubuntu:rwx /opt/* 
  cat << EOF >> /home/ubuntu/.bashrc
- alias start-all.sh="/opt/hadoop-2.7.7/sbin/start-all.sh"
- alias stop-all.sh="/opt/hadoop-2.7.7/sbin/stop-all.sh"
- alias start-dfs.sh="/opt/hadoop-2.7.7/sbin/start-dfs.sh"
- alias start-yarn.sh="/opt/hadoop-2.7.7/sbin/start-yarn.sh"
+ alias start-all.sh="sudo /opt/hadoop-2.7.7/sbin/start-all.sh"
+ alias stop-all.sh="sudo /opt/hadoop-2.7.7/sbin/stop-all.sh"
+ alias start-dfs.sh="sudo /opt/hadoop-2.7.7/sbin/start-dfs.sh"
+ alias start-yarn.sh="sudo /opt/hadoop-2.7.7/sbin/start-yarn.sh"
 EOF
  /opt/hadoop-2.7.7/sbin/stop-all.sh
  sudo rm -rf /opt/hadoop/dfsdata/datanode/*
