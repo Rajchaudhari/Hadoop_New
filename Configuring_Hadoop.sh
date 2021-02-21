@@ -1,4 +1,4 @@
-cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/core-site.xml
+cat << EOF > /opt/hadoop-2.10.1/etc/hadoop/core-site.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
@@ -20,7 +20,7 @@ cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/core-site.xml
 <configuration>
 <property>
   <name>hadoop.tmp.dir</name>
-  <value>/opt/hadoop-3.3.0/tmpdata</value>
+  <value>/opt/hadoop-2.10.1/tmpdata</value>
 </property>
 <property>
   <name>fs.default.name</name>
@@ -28,7 +28,7 @@ cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/core-site.xml
 </property>
 </configuration>
 EOF
-cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/hdfs-site.xml
+cat << EOF > /opt/hadoop-2.10.1/etc/hadoop/hdfs-site.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
@@ -50,7 +50,7 @@ cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/hdfs-site.xml
 <configuration>
 <property>
   <name>dfs.data.dir</name>
-  <value>/opt/hadoop-3.3.0/dfsdata/namenode</value>
+  <value>/opt/hadoop-2.10.1/dfsdata/namenode</value>
 </property>
 <property>
   <name>dfs.data.dir</name>
@@ -63,7 +63,7 @@ cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/hdfs-site.xml
 
 </configuration>
 EOF
-cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/mapred-site.xml
+cat << EOF > /opt/hadoop-2.10.1/etc/hadoop/mapred-site.xml
 <configuration>
 <property>
   <name>mapreduce.framework.name</name>
@@ -71,7 +71,7 @@ cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/mapred-site.xml
 </property>
 </configuration>
 EOF
-cat << EOF > /opt/hadoop-3.3.0/etc/hadoop/yarn-site.xml
+cat << EOF > /opt/hadoop-2.10.1/etc/hadoop/yarn-site.xml
 <?xml version="1.0"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -116,33 +116,33 @@ hdfs namenode -format
 RED='\033[0;32m'                                                                                                                                                                                                   NC='\033[0m'
 if dpkg -S /bin/ls >/dev/null 2>&1
 then
- /opt/hadoop-3.3.0/sbin/start-dfs.sh
- /opt/hadoop-3.3.0/sbin/start-yarn.sh
- /opt/hadoop-3.3.0/sbin/start-all.sh 
+ /opt/hadoop-2.10.1/sbin/start-dfs.sh
+ /opt/hadoop-2.10.1/sbin/start-yarn.sh
+ /opt/hadoop-2.10.1/sbin/start-all.sh 
  sudo apt-get -y install openjdk-8-jdk-headless default-jre
  cat << EOF >> $HOME/.bashrc
- alias start-all.sh="sudo /opt/hadoop-3.3.0/sbin/start-all.sh"
- alias stop-all.sh="sudo /opt/hadoop-3.3.0/sbin/stop-all.sh"
- alias start-dfs.sh="sudo /opt/hadoop-3.3.0/sbin/start-dfs.sh"
- alias start-yarn.sh="sudo /opt/hadoop-3.3.0/sbin/start-yarn.sh"
+ alias start-all.sh="sudo /opt/hadoop-2.10.1/sbin/start-all.sh"
+ alias stop-all.sh="sudo /opt/hadoop-2.10.1/sbin/stop-all.sh"
+ alias start-dfs.sh="sudo /opt/hadoop-2.10.1/sbin/start-dfs.sh"
+ alias start-yarn.sh="sudo /opt/hadoop-2.10.1/sbin/start-yarn.sh"
 EOF
  sudo setfacl -R -m u:ubuntu:rwx /opt/* 
  cat << EOF >> /home/ubuntu/.bashrc
- alias start-all.sh="sudo /opt/hadoop-3.3.0/sbin/start-all.sh"
- alias stop-all.sh="sudo /opt/hadoop-3.3.0/sbin/stop-all.sh"
- alias start-dfs.sh="sudo /opt/hadoop-3.3.0/sbin/start-dfs.sh"
- alias start-yarn.sh="sudo /opt/hadoop-3.3.0/sbin/start-yarn.sh"
+ alias start-all.sh="sudo /opt/hadoop-2.10.1/sbin/start-all.sh"
+ alias stop-all.sh="sudo /opt/hadoop-2.10.1/sbin/stop-all.sh"
+ alias start-dfs.sh="sudo /opt/hadoop-2.10.1/sbin/start-dfs.sh"
+ alias start-yarn.sh="sudo /opt/hadoop-2.10.1/sbin/start-yarn.sh"
 EOF
- /opt/hadoop-3.3.0/sbin/stop-all.sh
+ /opt/hadoop-2.10.1/sbin/stop-all.sh
  sudo rm -rf /opt/hadoop/dfsdata/datanode/*
- /opt/hadoop-3.3.0/sbin/start-dfs.sh
- /opt/hadoop-3.3.0/sbin/start-all.sh
+ /opt/hadoop-2.10.1/sbin/start-dfs.sh
+ /opt/hadoop-2.10.1/sbin/start-all.sh
  echo "ENTER THE FINAL WHICH IS:      source $HOME/.bashrc"
 elif rpm -q -f /bin/ls >/dev/null 2>&1
 then
- /opt/hadoop-3.3.0/sbin/start-dfs.sh
- /opt/hadoop-3.3.0/sbin/start-yarn.sh
- /opt/hadoop-3.3.0/sbin/start-all.sh 
+ /opt/hadoop-2.10.1/sbin/start-dfs.sh
+ /opt/hadoop-2.10.1/sbin/start-yarn.sh
+ /opt/hadoop-2.10.1/sbin/start-all.sh 
  sudo yum install java-1.8.0-openjdk-devel -y
  sudo stop-all.sh
  sudo rm -rf /opt/hadoop/dfsdata/datanode/*
