@@ -9,16 +9,16 @@ then
   cd ;
   sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
   sudo systemctl restart sshd
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz ;
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.9.2/hadoop-2.9.2-src.tar.gz ;
-  sudo tar -zxvf hadoop-2.9.2.tar.gz -C /opt ;
-  sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-2.9.2/etc/hadoop/hadoop-env.sh ;
-  echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" >> /opt/hadoop-2.9.2/etc/hadoop/hadoop-env.sh ;
-  echo "export PATH=/opt/hadoop-2.9.2/bin:$PATH" | sudo tee -a /etc/profile ; 
+  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz ;
+  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-3.3.0/hadoop-3.3.0-src.tar.gz ;
+  sudo tar -zxvf hadoop-3.3.0.tar.gz -C /opt ;
+  sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-3.3.0/etc/hadoop/hadoop-env.sh ;
+  echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" >> /opt/hadoop-3.3.0/etc/hadoop/hadoop-env.sh ;
+  echo "export PATH=/opt/hadoop-3.3.0/bin:$PATH" | sudo tee -a /etc/profile ; 
   source /etc/profile ;
   mkdir ~/source ;
-  sudo cp /opt/hadoop-2.9.2/etc/hadoop/*.xml ~/source ;
-  hadoop jar /opt/hadoop-2.9.2/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar grep ~/source ~/output 'principal[.]*' ;
+  sudo cp /opt/hadoop-3.3.0/etc/hadoop/*.xml ~/source ;
+  hadoop jar /opt/hadoop-3.3.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar grep ~/source ~/output 'principal[.]*' ;
   cat ~/output/* ;
   printf "${RED}HADOOP INSTALLATION COMPLETED !\n" ;
   hadoop version ;
@@ -32,17 +32,17 @@ then
   sudo yum install -y java-1.8.0-openjdk ;
   cd ;
   yum install wget -y ;
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.9.2/hadoop-2.9.2.tar.gz ;
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.9.2/hadoop-2.9.2-src.tar.gz ;
+  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz ;
+  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-3.3.0/hadoop-3.3.0-src.tar.gz ;
   sudo yum install perl-Digest-SHA -y ;
-  sudo tar -zxvf hadoop-2.9.2.tar.gz -C /opt ;
-  sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-2.9.2/etc/hadoop/hadoop-env.sh ;
-  echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" >> /opt/hadoop-2.9.2/etc/hadoop/hadoop-env.sh ;
-  echo "export PATH=/opt/hadoop-2.9.2/bin:$PATH" | sudo tee -a /etc/profile ; 
+  sudo tar -zxvf hadoop-3.3.0.tar.gz -C /opt ;
+  sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-3.3.0/etc/hadoop/hadoop-env.sh ;
+  echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" >> /opt/hadoop-3.3.0/etc/hadoop/hadoop-env.sh ;
+  echo "export PATH=/opt/hadoop-3.3.0/bin:$PATH" | sudo tee -a /etc/profile ; 
   source /etc/profile ;
   mkdir ~/source ;
-  cp /opt/hadoop-2.9.2/etc/hadoop/*.xml ~/source ;
-  hadoop jar /opt/hadoop-2.9.2/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.9.2.jar grep ~/source ~/output 'principal[.]*' ;
+  cp /opt/hadoop-3.3.0/etc/hadoop/*.xml ~/source ;
+  hadoop jar /opt/hadoop-3.3.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.0.jar grep ~/source ~/output 'principal[.]*' ;
   cat ~/output/* ;
   printf "${RED}HADOOP INSTALLATION COMPLETED !\n" ;
   hadoop version
