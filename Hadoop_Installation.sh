@@ -9,8 +9,10 @@ then
   cd ;
   sudo echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
   sudo systemctl restart sshd
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz ;
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1-src.tar.gz ;
+#  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz ;
+#  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1-src.tar.gz ;
+  wget http://apache.mirrors.tds.net/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz ;
+  wget http://apache.mirrors.tds.net/hadoop/common/hadoop-2.10.1/hadoop-2.10.1-src.tar.gz ;
   sudo tar -zxvf hadoop-2.10.1.tar.gz -C /opt ;
   sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-2.10.1/etc/hadoop/hadoop-env.sh ;
   echo "export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")" >> /opt/hadoop-2.10.1/etc/hadoop/hadoop-env.sh ;
@@ -32,8 +34,10 @@ then
   sudo yum install -y java-1.8.0-openjdk ;
   cd ;
   yum install wget -y ;
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz ;
-  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1-src.tar.gz ;
+#  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz ;
+#  wget http://apachemirror.wuchna.com/hadoop/common/hadoop-2.10.1/hadoop-2.10.1-src.tar.gz ;
+  wget http://apache.mirrors.tds.net/hadoop/common/hadoop-2.10.1/hadoop-2.10.1.tar.gz ;
+  wget http://apache.mirrors.tds.net/hadoop/common/hadoop-2.10.1/hadoop-2.10.1-src.tar.gz ;
   sudo yum install perl-Digest-SHA -y ;
   sudo tar -zxvf hadoop-2.10.1.tar.gz -C /opt ;
   sed -i 's/export JAVA_HOME/#/g' /opt/hadoop-2.10.1/etc/hadoop/hadoop-env.sh ;
